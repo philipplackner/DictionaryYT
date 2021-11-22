@@ -24,9 +24,13 @@ fun WordInfoItem(
             fontWeight = FontWeight.Bold,
             color = Color.Black
         )
-        Text(text = wordInfo.phonetic, fontWeight = FontWeight.Light)
+        wordInfo.phonetic?.let { phonetic ->
+            Text(text = phonetic, fontWeight = FontWeight.Light)
+        }
         Spacer(modifier = Modifier.height(16.dp))
-        Text(text = wordInfo.origin)
+        wordInfo.origin?.let { origin ->
+            Text(text = origin)
+        }
 
         wordInfo.meanings.forEach { meaning ->
             Text(text = meaning.partOfSpeech, fontWeight = FontWeight.Bold)
